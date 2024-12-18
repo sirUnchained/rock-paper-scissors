@@ -56,6 +56,7 @@ int get_check_user_chose()
 int get_pc_chose()
 {
   std::srand(std::time(0));
+  // formula => rand() % (max - min + 1) + min
   int chose = std::rand() % ((3 - 1) + 1) + 1;
 
   return chose;
