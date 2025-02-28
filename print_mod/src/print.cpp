@@ -1,4 +1,4 @@
-#include "include/print.h"
+#include "print.h"
 #include <iostream>
 
 void set_point(int points[], int &currentIndex, char result)
