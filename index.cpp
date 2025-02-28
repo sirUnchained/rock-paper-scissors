@@ -1,3 +1,5 @@
+#include "print_mod/include/print.h"
+
 #include <iostream>
 #include <limits>
 #include <random>
@@ -5,8 +7,6 @@
 int get_check_user_chose();
 int get_pc_chose();
 char compare_choses(int user_chose, int pc_chose);
-void set_point(int points[], int &currentIndex, char result);
-void congratulations(int points[], int rounds);
 void clearInput();
 
 std::mt19937 r_n{std::random_device{}()};
@@ -60,26 +60,6 @@ int get_pc_chose()
 	return chose;
 }
 
-void set_point(int points[], int &currentIndex, char result)
-{
-	if (result == '+')
-	{
-		points[currentIndex] = 1;
-		std::cout << "You won this round !\n";
-		currentIndex++;
-	}
-	else if (result == '-')
-	{
-		points[currentIndex] = 0;
-		std::cout << "You losed this round !\n";
-		currentIndex++;
-	}
-	else
-	{
-		std::cout << "No clear winner.\n";
-	}
-}
-
 char compare_choses(int user_chose, int pc_chose)
 {
 	if (user_chose == 1 && pc_chose == 3)
@@ -99,20 +79,6 @@ char compare_choses(int user_chose, int pc_chose)
 		return '=';
 	}
 	return '-';
-}
-
-void congratulations(int points[], int rounds)
-{
-	int user_wins{0};
-	for (size_t i = 0; i < rounds; i++)
-	{
-		if (points[i] == 1)
-		{
-			user_wins++;
-		}
-	}
-
-	std::cout << "User get \" " << user_wins << "\" points.\nI get \" " << rounds - user_wins << " \" points.";
 }
 
 void clearInput()
